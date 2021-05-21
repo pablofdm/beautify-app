@@ -4,17 +4,21 @@
       <img :src="logo" alt="logo" width="320px"/>
     </div>
     <div class="justify-center text-center posit">
-      <img :src="logoText" alt="logo" width="320px"/>
+      <img :src="logoText" alt="logo" width="320px" style="margin-top: -45px"/>
     </div>
-    <div class="q-col-gutter-y-md content-center item-center">
+    <div class="q-col-gutter-y-md content-center item-center posit2">
       <div class="justify-center text-center col-12">
-        <q-btn unelevated rounded color="purple" label="Cadastrar" class="q-px-xl q-py-xs rainbow-button"/>
+        <q-btn unelevated rounded color="purple" label="Cadastrar" class="q-px-xl q-py-xs rainbow-button" to="/login"/>
       </div>
       <div class="justify-center text-center col-12">
-        <q-btn unelevated rounded color="purple" label="Login" class="q-px-xl q-py-xs rainbow-button"  to="/login"/>
+        <q-btn unelevated rounded color="purple" label="Login" class="q-px-xl q-py-xs rainbow-button" to="/signIn"/>
       </div>
     </div>
-
+    <footer style="margin-top: 3.5rem;">
+      <div class="justify-center text-center col-12">
+        <label class="text-white list-none" to="/index">Copyright © {{getYear}} Beautify. Todos os direitos reservados.</label>
+      </div>
+    </footer>
     <!-- <p class="text-h4">Formulário</p>
       <form @submit="onSubmit" @reset="onReset" class="q-col-gutter-md row">
         <q-input  clearable outlined color="deep-purple" v-model="form.name" label="nome" class="col-md-12 col-sm-12 col-xs-12" :rules="[val => val && val.lenght > 0 || 'Nome obrigatório']">
@@ -44,6 +48,10 @@
 <style scoped>
 .posit {
   margin-top: -50px
+}
+
+.posit2{
+  margin-top: 40px;
 }
 
 .rainbow-button {
@@ -160,6 +168,12 @@ export default {
         mail: '',
         telefone: ''
       }
+    }
+  },
+  computed: {
+    getYear () {
+      const today = new Date()
+      return today.getFullYear()
     }
   },
   methods: {
